@@ -4,6 +4,7 @@
     "private": true,
     "dependencies": {
         "d3": "^5.7.0",
+        "difflib": "^0.2.4",
         "gh-pages": "^2.0.1",
         "react": "^16.5.2",
         "react-dom": "^16.5.2",
