@@ -4,11 +4,15 @@
     "private": true,
     "dependencies": {
         "d3": "^5.7.0",
+        "d3-hinton": "https://github.com/narphorium/d3-hinton",
         "difflib": "^0.2.4",
         "gh-pages": "^2.0.1",
         "react": "^16.5.2",
+        "react-d3-library": "^1.1.8",
         "react-dom": "^16.5.2",
-        "react-transition-group": "^2.5.0"
+        "react-easy-chart": "^1.0.0",
+        "react-transition-group": "^2.5.0",
+        "recharts": "^2.8.0"
     },
     "devDependencies": {
         "react-scripts": "1.0.17"

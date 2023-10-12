@@ -36,11 +36,8 @@ class FancyText extends Component {
         matching.getMatchingBlocks().forEach(
             (obj) => {
                 let [i, j, n] = obj
-                // newText[i:i+n] == oldText[j:j+n]
                 for(let idx = 0; idx < n; idx++) {
-                    console.log('i, j, n, idx', i,j,n,idx)
                     newTextWithIds[i + idx] = oldText[j + idx][1]
-                    console.log('setting', i+idx)
                 }
             }
         )

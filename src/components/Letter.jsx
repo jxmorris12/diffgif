@@ -2,19 +2,33 @@ import React from "react";
 import * as d3 from "d3";
 import Transition from "react-transition-group/Transition";
 
-const ExitColor = "brown",
-    UpdateColor = "#333",
+const ExitColor = "red", // brown
+    UpdateColor = "#555", // #333
     EnterColor = "green";
+
+
+let fontDetails = "48px monospace"
+var lettersPerLine = 40
+let letterSpacing = 32
+let lineSpacing = 48
 
 class Letter extends React.Component {
     defaultState = {
-        y: -60,
-        x: this.props.index * 32,
+        x: this.getX(),
+        y: this.getY(),
         color: EnterColor,
         fillOpacity: 1e-6
     };
-    state = this.defaultState;
-    letterRef = React.createRef();
+    state = this.defaultState
+    letterRef = React.createRef()
+
+    getX() {
+        return (this.props.index % lettersPerLine) * letterSpacing
+    }
+
+    getY() {
+        return Math.floor(this.props.index / lettersPerLine) * lineSpacing
+    }
 
     onEnter = () => {
         // Letter is entering the visualization
@@ -23,11 +37,10 @@ class Letter extends React.Component {
         node.transition()
             .duration(750)
             .ease(d3.easeCubicInOut)
-            .attr("y", 0)
+            .attr("y", this.getY())
             .style("fill-opacity", 1)
             .on("end", () => {
                 this.setState({
-                    y: 0,
                     fillOpacity: 1,
                     color: UpdateColor
                 });
@@ -40,7 +53,7 @@ class Letter extends React.Component {
 
         node.style("fill", ExitColor)
             .transition(this.transition)
-            .attr("y", 60)
+            .attr("y", this.getY() + 60)
             .style("fill-opacity", 1e-6)
             .on("end", () => this.setState(this.defaultState));
     };
@@ -54,16 +67,19 @@ class Letter extends React.Component {
         } else if (prevProps.index !== this.props.index) {
             // Letter is moving to a new location
             let node = d3.select(this.letterRef.current),
-                targetX = this.props.index * 32;
+                targetX = this.getX(),
+                targetY = this.getY();
 
             node.style("fill", UpdateColor)
                 .transition()
                 .duration(750)
                 .ease(d3.easeCubicInOut)
                 .attr("x", targetX)
+                .attr("y", this.getY())
                 .on("end", () =>
                     this.setState({
                         x: targetX,
+                        y: targetY,
                         color: UpdateColor
                     })
                 );
@@ -89,7 +105,7 @@ class Letter extends React.Component {
                     style={{
                         fillOpacity: fillOpacity,
                         fill: color,
-                        font: "bold 48px monospace"
+                        font: fontDetails
                     }}
                     ref={this.letterRef}
                 >
