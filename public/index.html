@@ -4,21 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
-    <!--
-      manifest.json provides metadata used when your web app is added to the
-      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <!-- <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico"> -->
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
+
+    <!-- /* https://www.cdnfonts.com/roboto-mono.font */ -->
+    <!-- <link href="https://fonts.cdnfonts.com/css/roboto-mono" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.cdnfonts.com/css/b612-mono" rel="stylesheet"> -->
+  <link href="https://fonts.cdnfonts.com/css/ubuntu-mono" rel="stylesheet">
+
     <title>vec2text</title>
   </head>
   <body>
@@ -39,11 +31,26 @@
   </body>
 
   <style>
+    .check {
+      position: absolute;
+      fill: green;
+      left: 225px;
+      top: 735px;
+      transition: opacity 3s ease-in-out;
+    }
     .container {
-        padding: 40px; 
-        font-size: 36px; 
-        font-family: monospace; 
-        font-weight: bold;
+      padding: 24px; 
+      font-size: 36px; 
+      /* font-family: 'B612 Mono', sans-serif; */
+      font-family: 'Ubuntu Mono', sans-serif;
+      /* font-family: 'Roboto Mono', sans-serif; */
+      /* font-weight: bold; */
+    }
+    h1, h2, h3, h4, h5 {
+      color: #1e3a58;
+      font-family: 'Helvetica';
+      font-size: 32px;
+      font-weight: bold;
     }
 </style>
 </html>

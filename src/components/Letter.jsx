@@ -2,15 +2,18 @@ import React from "react";
 import * as d3 from "d3";
 import Transition from "react-transition-group/Transition";
 
-const ExitColor = "red", // brown
-    UpdateColor = "#555", // #333
-    EnterColor = "green";
+const ExitColor = "#2980b9", // red, brown
+    UpdateColor = "#333", // #333
+    EnterColor = "#2980b9"
 
 
-let fontDetails = "48px monospace"
+var fontSizeDetails = "48px"
+var fontFamilyDetails = "'Roboto Mono', sans-serif;"
 var lettersPerLine = 40
-let letterSpacing = 32
+let letterSpacing = 24
 let lineSpacing = 48
+
+let LetterAnimationDuration = 1350
 
 class Letter extends React.Component {
     defaultState = {
@@ -35,7 +38,7 @@ class Letter extends React.Component {
         let node = d3.select(this.letterRef.current);
 
         node.transition()
-            .duration(750)
+            .duration(LetterAnimationDuration)
             .ease(d3.easeCubicInOut)
             .attr("y", this.getY())
             .style("fill-opacity", 1)
@@ -72,7 +75,7 @@ class Letter extends React.Component {
 
             node.style("fill", UpdateColor)
                 .transition()
-                .duration(750)
+                .duration(LetterAnimationDuration)
                 .ease(d3.easeCubicInOut)
                 .attr("x", targetX)
                 .attr("y", this.getY())
@@ -94,7 +97,7 @@ class Letter extends React.Component {
             <Transition
                 in={this.props.in}
                 unmountOnExit={false}
-                timeout={750}
+                timeout={LetterAnimationDuration}
                 onEnter={this.onEnter}
                 onExit={this.onExit}
             >
@@ -105,7 +108,8 @@ class Letter extends React.Component {
                     style={{
                         fillOpacity: fillOpacity,
                         fill: color,
-                        font: fontDetails
+                        fontFamily: fontFamilyDetails,
+                        fontSize: fontSizeDetails,
                     }}
                     ref={this.letterRef}
                 >

@@ -32,7 +32,6 @@ class FancyText extends Component {
         let newTextWithIds = {}
 
         // fill out old ids
-        console.log('blocks:', matching.getMatchingBlocks())
         matching.getMatchingBlocks().forEach(
             (obj) => {
                 let [i, j, n] = obj
