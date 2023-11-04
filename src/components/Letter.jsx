@@ -9,7 +9,7 @@ const ExitColor = "#2980b9", // red, brown
 
 var fontSizeDetails = "48px"
 var fontFamilyDetails = "'Roboto Mono', sans-serif;"
-var lettersPerLine = 40
+var lettersPerLine = 50
 let letterSpacing = 24
 let lineSpacing = 48
 

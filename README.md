@@ -1,4 +1,4 @@
-## vec2text gif
+## diffgif
 
 <img src="https://github.com/jxmorris12/vec2text-gif/blob/master/vec2text_v3.gif" width="500" />
 
